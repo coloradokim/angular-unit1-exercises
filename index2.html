@@ -1,0 +1,20 @@
+<html ng-app>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  </head>
+  <body>
+    <input ng-model="name" type="text" placeholder="What is your name?">
+    <h1>My name is {{name}}</h1>
+
+    <select ng-model="pets" name="pets">
+      <option value="Dogs">Dogs</option>
+      <option value="Cats">Cats</option>
+      <option value="Dogs and Cats">Dogs and Cats</option>
+      <option value="Neither">Neither</option>
+    </select>
+
+    <h3>I love {{pets}}.</h3>
+
+  </body>
+</html>
