@@ -34,6 +34,20 @@
       </ng-pluralize></h3>
     <h3>{{3.14159265359 | number: piDigits}} </h3>
 
+    <h2>Super Useful Tip Calculator</h2>
+    <label for="ng-model">How much did your meal cost?</label>
+    <input ng-model="mealCost" type="text">
+
+    <label for="ng-model">How much do you want to tip?</label>
+    <select ng-model="tip" name="tip">
+      <option value=".1">10%</option>
+      <option value=".15">15%</option>
+      <option value=".2">20%</option>
+    </select>
+
+    <h3>Cost of Meal: ${{mealCost}}</h3>
+    <h3>Tip: ${{mealCost*tip | number:2}}</h3>
+    <h3>Total: ${{(mealCost*tip mealCost) | number:2}}</h3>
 
 
 
