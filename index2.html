@@ -1,11 +1,14 @@
 <html ng-app>
   <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+    </style>
   </head>
   <body>
-    <input ng-model="name" type="text" placeholder="What is your name?">
-    <h1>My name is {{name}}</h1>
+    <input ng-model="name" type="text" placeholder="What is your name?" ng-init="name='BoJack'">
+    <h1 id= "nameInput">My name is {{name}}</h1>
 
     <select ng-model="petChoice" name="petChoice">
       <option value="Dogs">Dogs</option>
@@ -17,4 +20,6 @@
     <h3>I love {{petChoice}}.</h3>
 
   </body>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 </html>
