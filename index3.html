@@ -1,0 +1,44 @@
+<html ng-app>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <body>
+
+      <h3> 1 + 2 = {{1+2}} </h3>
+
+      <h3> My name is {{"BoJack" + " Horseman"}} </h3>
+
+      <h3>The array [99, 43, 22] is {{[99, 43, 22].length}} items long.</h3>
+
+      <h3> {{3.14159265359 | currency: "&#8364"}} </h3>
+
+      <label for="ng-model">Please Say Something</label>
+      <input ng-model= "saySomething" type="text">
+      <h3>Yelling: {{saySomething | uppercase}}</h3>
+      <h3>Whispering: <i>{{saySomething | lowercase}}</i></h3>
+
+      <h3>How many digits of pi do you want?</h3>
+      <select ng-model="piDigits" name="piDigits">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>
+      <h3><ng-pluralize count="piDigits"
+                     when="{'1': 'Here you go! The first digit of pi!',
+                     'other': 'Here you go! The first {} digits of pi!'}">
+      </ng-pluralize></h3>
+    <h3>{{3.14159265359 | number: piDigits}} </h3>
+
+
+
+
+
+    </body>
+
+  </head>
+</html>
