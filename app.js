@@ -1,7 +1,7 @@
 var app = angular.module("ExercisesController", []);
-app.controller("FavColor", function($scope) {
+app.controller("ExercisesController", function($scope) {
+  $scope.name = "Walt Whitman";
   $scope.FavColor = "blue";
-})
-app.controller("secondsInACentury", function($scope) {
-  $scope.secondsInACentury = 
+  $scope.secondsInACentury = (100 * 365 * 24 * 60 * 60);
+  $scope.rightNow = new Date
 })

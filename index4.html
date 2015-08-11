@@ -2,8 +2,11 @@
   <head>
   </head>
   <body>
-    <div ng-controller="FavColor">
-        <h1>My favorite color is: {{FavColor}}</h1>
+    <div ng-controller="ExercisesController">
+        <h1>My name is {{name}}. "I am large, I contain multitudes."</h1>
+        <h2>My favorite color is: {{FavColor}}</h2>
+        <h3>There are {{secondsInACentury | number}} seconds in a century!</h3>
+        <h4>The date is {{rightNow | date: 'fullDate'}}.</h4>
     </div>
   </body>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
