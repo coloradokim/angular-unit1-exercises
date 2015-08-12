@@ -1,5 +1,16 @@
 <html ng-app ="appFive">
   <head>
+    <style>
+    .highlight {
+      background-color: yellow;
+  }
+    .green {
+      color: green;
+    }
+    .red {
+      color: red;
+    }
+    </style>
   </head>
     <body>
       <div ng-controller="appFive">
@@ -52,14 +63,27 @@
      </div>
 
      <h3>Sign Up Page</h3>
-     <input ng-model="passNum" type="text">
-     <h4><ng-pluralize  count="passNum.length"
+     <input ng-model="passNum" type="password">
+
+     <div ng-show = "passNum.length < 7">
+     <h4 ng-class="{red: passNum.length < 7}"><ng-pluralize  count="passNum.length"
                         when="{'1': 'Your password is 1 character',
                               'other': 'Your password is {} characters'}">
     </ng-pluralize></h4>
+    </div>
+
+    <div ng-show="passNum.length > 6" >
+     <h4 ng-class="{green: passNum.length > 6}"><ng-pluralize  count="passNum.length"
+                        when="{'1': 'Your password is 1 character',
+                              'other': 'Your password is {} characters'}">
+    </ng-pluralize></h4>
+    </div>
 
     <button ng-show = "passNum.length > 6">Submit</button>
-    <h4 ng-show = "passNum.length <7">Password is invalid!</h4>
+    <h4 ng-show = "passNum.length < 7">Password is invalid!</h4>
+
+    <div ng-class="{highlight: 4 + 4 == 8}"> 4 + 4 = 8</div>
+    <div ng-class="{highlight: 4 + 4 == 10}">4 + 4 = 10</div>
 
     </body>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
