@@ -1,0 +1,67 @@
+<html ng-app ="appFive">
+  <head>
+  </head>
+    <body>
+      <div ng-controller="appFive">
+        <ul>
+          <li ng-repeat="name in names">
+            {{name}}
+           </li>
+        </ul>
+      </div>
+
+      <div ng-controller="appFive">
+        <ul>
+          <li ng-repeat="symbol in symbols">
+            {{symbol}}
+           </li>
+        </ul>
+      </div>
+
+      <div ng-controller="appFive">
+        <ul>
+          <li ng-repeat="number in numbers track by $index">
+            {{number}}
+           </li>
+        </ul>
+      </div>
+
+      <div ng-controller="appFive">
+        <h4>Keys!</h4>
+        <ul>
+          <li ng-repeat="(key, value) in keyValues">
+            {{key}}
+           </li>
+        </ul>
+      </div>
+
+      <div ng-show="3 + 4 == 5">
+     3 + 4 isn't 5, don't show
+     </div>
+
+     <div ng-show="3 + 4 == 7">
+     3 + 4 is 7, do show
+     </div>
+
+     <div ng-hide="3 + 4 == 5">
+     3 + 4 isn't 5, don't hide
+     </div>
+
+     <div ng-hide="3 + 4 == 7">
+     3 + 4 is 7, do hide
+     </div>
+
+     <h3>Sign Up Page</h3>
+     <input ng-model="passNum" type="text">
+     <h4><ng-pluralize  count="passNum.length"
+                        when="{'1': 'Your password is 1 character',
+                              'other': 'Your password is {} characters'}">
+    </ng-pluralize></h4>
+
+    <button ng-show = "passNum.length > 6">Submit</button>
+    <h4 ng-show = "passNum.length <7">Password is invalid!</h4>
+
+    </body>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="app5.js"></script>
+</html>
