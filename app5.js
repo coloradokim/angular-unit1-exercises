@@ -31,6 +31,10 @@ app.controller("appFive", function($scope) {
             price: 3796.95,
             onSale: true
         }
-    ]
+    ];
+  $scope.number = 5;
+  $scope.pickRandomNumber = function(){
+      $scope.number = Math.floor(Math.random() * 10) + 1
+  };
 
 })
