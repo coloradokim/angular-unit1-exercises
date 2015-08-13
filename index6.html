@@ -40,24 +40,30 @@
         <input type="text" ng-model="word">
         <h4>{{word}}</h4>
         <button ng-click="reverse()">Reverse!</button>
-      </div>
+
 
   <h2>Ping Pong Score Keeper</h2>
     <div ng-click="player1Score = player1Score +1" ng-init="player1Score=0">
-      <span ng-class="{blue: player1Score != 11, green: player1Score === 11}">
-        <h3>Player 1</h3>
-        <h4>{{player1Score}}</h4>
+      <span ng-class="{blue: player1Score < 11, green: player1Score === 11}">
+        <h2>Player 1</h2>
+        <h2>{{player1Score}}</h2>
+        <h3 ng-show="player1Score % 2 != 0">Serving</h3>
+
       </span>
     </div>
 
     <div ng-click="player2Score = player2Score +1" ng-init="player2Score=0">
-      <span ng-class="{blue: player2Score != 11, green: player2Score === 11}">
-        <h3>Player 2</h3>
-        <h4>{{player2Score}}</h4>
+      <span ng-class="{blue: player2Score < 11, green: player2Score === 11}">
+        <h2>Player 2</h2>
+        <h2>{{player2Score}}</h2>
+        <h3 ng-hide="player2Score === 0">Serving</h3>
+        <h3 ng-show="player2Score % 2 === 0">Serving</h3>
       </span>
     </div>
     <br>
 <button ng-click="reset()">Reset</button>
+<!-- AppSix scope ends here  -->
+  </div>
 <!-- EXERCISE: Create a simple Ping Pong Score Keeper.
 It should display the 2 players' scores, have buttons to increment each player's scores,
 and highlight the winner(assume games only go to 11). It should also display the
