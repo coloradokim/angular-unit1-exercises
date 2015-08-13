@@ -36,5 +36,8 @@ app.controller("appFive", function($scope) {
   $scope.pickRandomNumber = function(){
       $scope.number = Math.floor(Math.random() * 10) + 1
   };
-
+  $scope.word = 'word';
+  $scope.reverseWord = function(word){
+     $scope.word = $scope.word.split('').reverse().join('');
+   };
 })
