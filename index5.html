@@ -85,6 +85,21 @@
     <div ng-class="{highlight: 4 + 4 == 8}"> 4 + 4 = 8</div>
     <div ng-class="{highlight: 4 + 4 == 10}">4 + 4 = 10</div>
 
+<h2>Camera Shop</h2>
+    <div ng-controller="appFive">
+      <select ng-model = 'priceRating'>
+        <option value="price">Price</option>
+        <option value="rating">Rating</option>
+      </select>
+
+      <div ng-repeat='camera in cameras | orderBy:priceRating'>
+          <h4>{{camera.title}}</h4>
+        <div ng-class="{sale:camera.sale==true}">Price: {{camera.price | currency}}</div>
+          <span ng-show="{camera.sale==true}">ON SALE!</span>
+          <div>Rating: {{camera.rating}}</div>
+          <img style='width:90px' ng-src="{{camera.image}}" alt="picture of camera">
+      </span>
+    </div>
     </body>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
     <script src="app5.js"></script>
