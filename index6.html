@@ -1,43 +1,63 @@
 <html ng-app="appFive">
   <head>
     <style>
-      .player1 {
-        height: 300px;
-        width: 300px;
+      .blue {
+        display: inline-block;
+        float: left;
+        height: 400px;
+        width: 30%;
+        margin: 10px;
+        color: white;
         background-color: rgba(64, 124, 220, 1);
       }
-      .player2 {
-        height: 300px;
-        width: 300px;
-        background-color: rgba(64, 124, 220, 1);
+      .green {
+          display: inline-block;
+          float: left;
+          height: 400px;
+          width: 30%;
+          margin: 10px;
+          color: white;
+          background-color: rgba(86, 174, 112, 1);
+      }
+      .red {
+          display: inline-block;
+          float: left;
+          height: 400px;
+          width: 30%;
+          margin: 10px;
+          color: white;
+          background-color: red;
       }
 
     </style>
   </head>
     <body>
-      <div ng-controller="appFive">
+      <div ng-controller="appSix">
       <h3>The number is {{number}}!</h3>
       <button ng-click="pickRandomNumber()">Pick Random Number</button>
-      </div>
-      <br>
-      <div ng-controlller="appFive">
+
         <label>Word Reverser</label>
-        <input ng-model= "word" type="text">
+        <input type="text" ng-model="word">
         <h4>{{word}}</h4>
-        <button ng-click="wordReverse(word)">Reverse!</button>
+        <button ng-click="reverse()">Reverse!</button>
       </div>
 
-<h2>Ping Pong Score Keeper</h2>
-<div class="player1">
-  <h3>Player 1</h3>
-  <h4>{{player1Score}}</h4>
-  <button ng-click="player1Score = player1Score +1" ng-init="player1Score=0">+1</button>
-</div>
-<div class="player2">
-  <h3>Player 2</h3>
-  <h4>{{player2Score}}</h4>
-  <button ng-click="player2Score = player2Score +1" ng-init="player2Score=0">+1</button>
-</div>
+  <h2>Ping Pong Score Keeper</h2>
+    <div ng-click="player1Score = player1Score +1" ng-init="player1Score=0">
+      <span ng-class="{blue: player1Score != 11, green: player1Score === 11}">
+        <h3>Player 1</h3>
+        <h4>{{player1Score}}</h4>
+      </span>
+    </div>
+
+    <div ng-click="player2Score = player2Score +1" ng-init="player2Score=0">
+      <span ng-class="{blue: player2Score != 11, green: player2Score === 11}">
+        <h3>Player 2</h3>
+        <h4>{{player2Score}}</h4>
+      </span>
+    </div>
+    <br>
+<button ng-click="reset()">Reset</button>
 <!-- EXERCISE: Create a simple Ping Pong Score Keeper.
 It should display the 2 players' scores, have buttons to increment each player's scores,
 and highlight the winner(assume games only go to 11). It should also display the

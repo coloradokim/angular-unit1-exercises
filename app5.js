@@ -32,12 +32,18 @@ app.controller("appFive", function($scope) {
             onSale: true
         }
     ];
+})
+
+app.controller("appSix", function($scope) {
   $scope.number = 5;
   $scope.pickRandomNumber = function(){
-      $scope.number = Math.floor(Math.random() * 10) + 1
+    $scope.number = Math.floor(Math.random() * 10) + 1
   };
-  $scope.word = 'word';
-  $scope.reverseWord = function(word){
-     $scope.word = $scope.word.split('').reverse().join('');
-   };
+  $scope.reverse = function(){
+    $scope.word = $scope.word.split('').reverse().join('');
+  }
+  $scope.reset = function() {
+    $scope.player1Score = 0
+    $scope.player2Score = 0
+  }
 })
