@@ -1,16 +1,9 @@
 var app = angular.module("contacts", []);
-app.controller('formController', ['$scope', function($scope) {
-  $scope.master = {};
 
-  $scope.update = function(contact) {
-    $scope.master = angular.copy(contact);
+app.controller('formController', function($scope) {
+  $scope.contactList = [];
+  $scope.update = function() {
+    $scope.contactList.push({name: $scope.name, email: $scope.email, phone: $scope.phone });
   };
-
-  $scope.reset = function() {
-    $scope.contact = angular.copy($scope.master);
-  };
-
-  $scope.reset();
-  }]);
-
+});
   

@@ -7,38 +7,28 @@ rather than creating 3 different properties on the $scope -->
 
 <html ng-app="contacts">
   <head>
-    <style >
+    <style>
     </style>
   </head>
   <body>
   <div ng-controller="formController">
-    <form novalidate class="contactForm">
       <h1>Contacts App</h1>
       <label for="name">Name</label>
-      <input type="text" ng-model="contact.name" />
+      <input type="text" ng-model="name" />
       <label for="email">Email</label>
-      <input type="email" ng-model="contact.email" />
+      <input type="email" ng-model="email" />
       <label for="phone">Phone</label>
-      <input type="text" ng-model="contact.phone" />
-      <button type="submit" ng-click="update(user)" value="Save">Add Contact</button>
-
-      <input type="button" ng-click="reset()" value="Reset" />
-        <pre>form = {{contact | json}}</pre>
-        <pre>master = {{master | json}}</pre>
-    </form>
-
+      <input type="text" ng-model="phone" />
+      <input type="submit" ng-click="update()" value="Add Contact"/>
     <label for="">Search</label>
-    <input type="text" name="name" value="">
+    <input type="text" ng-model="search" name="name" value="">
 
     <table>
 
     <thead>
       <tr>
         <td>
-          <a ng-click="sortType = 'name'; sortReverse = !sortReverse">
             Name
-            <span ng-show="sortType == 'name' && !sortReverse"></span>
-            <span ng-show="sortType == 'name' && sortReverse"></span>
           </a>
         </td>
         <td>
@@ -58,19 +48,19 @@ rather than creating 3 different properties on the $scope -->
       </tr>
     </thead>
     <tbody>
-     <tr ng-repeat="roll in sushi | orderBy:sortType:sortReverse | filter:searchFish">
-       <td>{{ contact.name }}</td>
-       <td>{{ contact.email }}</td>
-       <td>{{ contact.phone }}</td>
+     <tr ng-repeat= "contact in contactList | filter: search">
+       <td>{{contact.name}}</td>
+       <td>{{contact.email}}</td>
+       <td>{{contact.phone}}</td>
      </tr>
    </tbody>
 
  </table>
   </div>
 
-
-
   </body>
+
+  </script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
     <script src="contactsApp.js"></script>
 </html>
