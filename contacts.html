@@ -1,0 +1,76 @@
+<!-- EXERCISE: Contact List. Create a simple contacts app.
+Each contact has a name, email, and phone number.
+A user can create new contacts using a form.
+A user can search contacts as well(you'll need to research this part).
+HINT: try binding name, email, and phone as properties on one newContact object
+rather than creating 3 different properties on the $scope -->
+
+<html ng-app="contacts">
+  <head>
+    <style >
+    </style>
+  </head>
+  <body>
+  <div ng-controller="formController">
+    <form novalidate class="contactForm">
+      <h1>Contacts App</h1>
+      <label for="name">Name</label>
+      <input type="text" ng-model="contact.name" />
+      <label for="email">Email</label>
+      <input type="email" ng-model="contact.email" />
+      <label for="phone">Phone</label>
+      <input type="text" ng-model="contact.phone" />
+      <button type="submit" ng-click="update(user)" value="Save">Add Contact</button>
+
+      <input type="button" ng-click="reset()" value="Reset" />
+        <pre>form = {{contact | json}}</pre>
+        <pre>master = {{master | json}}</pre>
+    </form>
+
+    <label for="">Search</label>
+    <input type="text" name="name" value="">
+
+    <table>
+
+    <thead>
+      <tr>
+        <td>
+          <a ng-click="sortType = 'name'; sortReverse = !sortReverse">
+            Name
+            <span ng-show="sortType == 'name' && !sortReverse"></span>
+            <span ng-show="sortType == 'name' && sortReverse"></span>
+          </a>
+        </td>
+        <td>
+          <a ng-click="sortType = 'email'; sortReverse = !sortReverse">
+          Email
+            <span ng-show="sortType == 'email' && !sortReverse"></span>
+            <span ng-show="sortType == 'email' && sortReverse"></span>
+          </a>
+        </td>
+        <td>
+          <a ng-click="sortType = 'phone'; sortReverse = !sortReverse">
+          Phone
+            <span ng-show="sortType == 'phone' && !sortReverse"></span>
+            <span ng-show="sortType == 'phone' && sortReverse"></span>
+          </a>
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+     <tr ng-repeat="roll in sushi | orderBy:sortType:sortReverse | filter:searchFish">
+       <td>{{ contact.name }}</td>
+       <td>{{ contact.email }}</td>
+       <td>{{ contact.phone }}</td>
+     </tr>
+   </tbody>
+
+ </table>
+  </div>
+
+
+
+  </body>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="contactsApp.js"></script>
+</html>
